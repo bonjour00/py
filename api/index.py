@@ -4,7 +4,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 # Use a service account.
-cred = credentials.Certificate('key.json')
+cred = credentials.Certificate('../key.json')
 # r'C:\Users\User\Desktop\py\key.json'
 app = firebase_admin.initialize_app(cred)
 
