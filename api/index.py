@@ -1,12 +1,22 @@
 from flask import Flask, jsonify
-# from flask_cors import CORS
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
 
+# Use a service account.
+cred = credentials.Certificate(r'C:\Users\User\Desktop\py\key.json')
 
+app = firebase_admin.initialize_app(cred)
+
+db = firestore.client()
 app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
 def home():
-    return jsonify('Hello, World!')
+    doc_ref = db.collection("posts").document("WasXXBdrVywtUc7pz8F6")
+    doc = doc_ref.get()
+
+    return jsonify({"data":doc.to_dict(),"id":doc.id})
 
 if __name__ == "__main__":
     app.run(debug=True)
