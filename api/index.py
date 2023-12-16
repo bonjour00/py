@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
+# import firebase_admin
+# from firebase_admin import credentials
+# from firebase_admin import firestore
 
 # Use a service account.
 # cred = credentials.Certificate('key.json')
