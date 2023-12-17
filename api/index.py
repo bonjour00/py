@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+from flask_cors import CORS
 import requests
 import math
 import time
@@ -11,6 +12,7 @@ cred = credentials.Certificate('./key.json')
 app = firebase_admin.initialize_app(cred)
 db = firestore.client()
 app = Flask(__name__)
+CORS(app)
 
 headers = {
    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36'
