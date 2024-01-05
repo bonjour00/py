@@ -6,14 +6,14 @@ import requests
 import math
 import time
 from datetime import datetime
-# from flask_cors import CORS
+from flask_cors import CORS
 
 # Use a service account."./key.json"
 cred = credentials.Certificate("./key.json")
 app = firebase_admin.initialize_app(cred)
 db = firestore.client()
 app = Flask(__name__)  
-# CORS(app)
+CORS(app)
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
